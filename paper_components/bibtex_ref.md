@@ -1,8 +1,7 @@
 ```bib
 @book{ruby,
-  title     = {The Ruby Programming Language},
-  author    = {Flanagan, David and Matsumoto, Yukihiro},
-  year      = {2008},
-  publisher = {O'Reilly Media}
+  title     = {Quantum Polar Metric Learning: Efficient Classically Learned Quantum Embeddings},
+  author    = {Vinayak Sharma, Aviral Shrivastava},
+  year      = {2023},
 }
 ```

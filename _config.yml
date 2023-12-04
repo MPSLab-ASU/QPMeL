@@ -1,6 +1,6 @@
 ######################## Paper Information ########################################
 # Personal info
-paper_name: "MPS-LAB Paper Page Template"
+paper_name: "QPMeL: Quantum Polar Metric Learning"
 
 organization: Arizona State University 
 sub_organization: School of Computing and Augmented Intelligence 
@@ -10,16 +10,15 @@ sub_organization: School of Computing and Augmented Intelligence
 
 paper_pdf: https://dl.acm.org/doi/pdf/10.1145/3358198
 # supplementary_pdf: Supplementary PDF here
-code: https://github.com/MPSLab-ASU/Project_Page_Template
+code: soon # https://github.com/MPSLab-ASU/Project_Page_Template
 arXiv : https://arxiv.org/abs/1512.01274
-IEEE: https://ieeexplore.ieee.org/document/9187262
 # Additional icon links
 
 favicon: assets/images/MPS_Lab.ico
 
 main_media:
-  source: https://labs.engineering.asu.edu/mps-lab/wp-content/uploads/sites/8/2019/12/dataflow-accelerators-768x251.png
-  caption: Executing applications on dataflow accelerators require explicit management of computational, communication, and memory resource
+  source: assets/images/system2
+  caption: QPMeL triplet training loop. The fidelity triplet loss is computed based on the SWAP test fidelity measurement and the gradients are backpropagated throughout. The classical model weights, ZZ parameters and QRC parameters are updated together, having the classical head directly learn the polar coordinates that create separation in Hilbert Space.
 
 
 

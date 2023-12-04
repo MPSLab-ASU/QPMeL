@@ -8,14 +8,11 @@
   website: vinayak19th.github.io
   primary: true
 
-- name: Shail Dave
-  position: PhD 
-  github: shail-dave
-  email: Shail.Dave@asu.edu 
-  linkedin: daveshail
-  organization: Arizona State University
-  sub_organization: School of Computing and Augmented Intelligence
-  google_scholar: https://scholar.google.com/citations?hl=en&user=SVft2R0AAAAJ&view_op=list_works
-  website: https://sites.google.com/view/shail/
-
-  
+- name: Aviral Shrivastava
+  linkedin: aviral
+  email: Aviral.Shrivastava@asu.edu
+  position: Member
+  organization: IEEE
+  github: aviralshri
+  website: https://labs.engineering.asu.edu/mps-lab/person/aviral-shrivastava/
+  google_scholar: https://scholar.google.com/citations?user=zlzK-v0AAAAJ&hl=en

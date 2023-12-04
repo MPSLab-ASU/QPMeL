@@ -2,15 +2,11 @@
 ## Math Demo
 $$ \alpha = \beta $$
 
-## Normal Code
-This is an academic paper project page template.
-
-
-Example project pages built using this template are:
-- https://www.vision.huji.ac.il/deepsim/
-- https://www.vision.huji.ac.il/3d_ads/
-- https://www.vision.huji.ac.il/ssrl_ad/
-- https://www.vision.huji.ac.il/conffusion/
+## Paper Contributions
+**QPMeL** addresses introduces the following ideas: 
+1. A novel classical network that encodes classical data into 2 real-valued vectors that are used as Polar coordinates of a qubit. This allows us to utilize the entire 3D space of a qubit, as we are not limited to a single plane.
+2. A hybrid Hilbert space distance metric we dub *Fidelity Triplet Loss* that measures distance in Hilbert Space while creating the optimization target classically. The distances are measured in-circuit while their difference is computed classically.
+3. *Quantum Residual Corrections* to speed up model learning and generate more stable gradients by acting as a noise barrier. The parameters absorb noisier gradients to allow the classical model to learn more efficiently.
 
 
 ## Start using the template

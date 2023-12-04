@@ -40,9 +40,15 @@ title: Home
                 </a> &nbsp; &nbsp; </li> 
             {%- endif -%}
             {%- if site.code -%}
+                {%- if site.code == "soon" %}
+                <li><button class="btn btn-secondary rounded-pill" style="background-color: #242424;">
+                    <i class="devicon-github-original"></i><b> Coming Soon </b> 
+                </button> &nbsp; &nbsp; </li> 
+                {%- else -%}
                 <li><a role="button" href="{{site.code}}" class="btn btn-secondary rounded-pill" style="background-color: #242424;">
                     <i class="devicon-github-original"></i><b> Code</b> 
                 </a> &nbsp; &nbsp; </li> 
+                {%- endif -%}
             {%- endif -%}
             {%- if site.arXiv -%}
                 <li><a role="button" href="{{site.arXiv}}" class="btn btn-danger rounded-pill" style="background-color: #B31B1B">
@@ -74,7 +80,8 @@ title: Home
     </div>
     {%- endif -%}
 
-    {%- if site.data.figures[1].caption -%}
+    <!-- <h1>{{site.data.figures}}</h1> -->
+    {%- if site.data.figures -%}
         <div id="Media_Carousel">
             <hr class="dotted">
             <h2 class="component-title">Important Figures</h2>
