@@ -17,7 +17,7 @@ arXiv : https://arxiv.org/abs/1512.01274
 favicon: assets/images/MPS_Lab.ico
 
 main_media:
-  source: assets/images/system2
+  source: assets/images/system2.svg
   caption: QPMeL triplet training loop. The fidelity triplet loss is computed based on the SWAP test fidelity measurement and the gradients are backpropagated throughout. The classical model weights, ZZ parameters and QRC parameters are updated together, having the classical head directly learn the polar coordinates that create separation in Hilbert Space.
 
 

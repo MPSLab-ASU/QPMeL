@@ -10,6 +10,10 @@
   caption: |
     Training Circuit. The green boxes - encoding circuit. The yellow box - SWAP Test implementation. The comparison is either a +ve or -ve sample
 
+- filename: mse_table.svg
+  caption: |
+    MinMax Metric, Euclidean Space: Sigmoid models cannot create decision boundaries. The remaining models create a decision boundary. *QPMeL* models perform the best
+
 - filename: MSEHeat.svg
   caption: |
     All Pair heatmaps in Euclidean space: (a) and (c) have the same model architecture but show large differences in separatability. (b) shows perfect separatability but via an unbounded upper limit as seen by the magnitude of values.
