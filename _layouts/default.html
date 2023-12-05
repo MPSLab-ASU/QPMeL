@@ -17,8 +17,12 @@
   <body>
     <nav class="navbar fixed-top navbar-light ">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"></a>
-           <a class="navbar-brand" href="https://labs.engineering.asu.edu/mps-lab/"><img src="assets/images/mps_logo_nobg.png" alt="" width="130"  class="d-inline-block align-text-top"></a> 
+          <span class="navbar-brand" href="#">
+            {%- if site.preprint -%}
+              <span class="badge pre-print">Pre-Print Version</span>
+            {%- endif -%}
+          </span>
+          <a class="navbar-brand" href="https://labs.engineering.asu.edu/mps-lab/"><img src="assets/images/mps_logo_nobg.png" alt="" width="130"  class="d-inline-block align-text-top"></a> 
           </a>
         </div>
       </nav>

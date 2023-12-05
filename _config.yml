@@ -1,17 +1,17 @@
 ######################## Paper Information ########################################
 # Personal info
 paper_name: "QPMeL: Quantum Polar Metric Learning"
-
+preprint : True
 organization: Arizona State University 
 sub_organization: School of Computing and Augmented Intelligence 
 
 
 ######################## Paper Resources ########################################
 
-paper_pdf: https://dl.acm.org/doi/pdf/10.1145/3358198
+paper_pdf: https://arxiv.org/pdf/2312.01655.pdf
 # supplementary_pdf: Supplementary PDF here
 code: soon # https://github.com/MPSLab-ASU/Project_Page_Template
-arXiv : https://arxiv.org/abs/1512.01274
+arXiv : https://arxiv.org/abs/2312.01655
 # Additional icon links
 
 favicon: assets/images/MPS_Lab.ico
