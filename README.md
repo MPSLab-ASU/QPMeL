@@ -31,6 +31,7 @@ The [_config.yaml](./_config.yml) file contains all the information about the pa
 * **paper_name** : The title of the paper
 * **organization** : The organization that the paper is associated with
 * **sub_organization** : The department that the paper is associated with
+* **preprint** : (Boolean) If the paper is a preprint or not (True/False)
 
 **Paper Resources** ->
 * **paper_pdf** : The path to the pdf of the paper
