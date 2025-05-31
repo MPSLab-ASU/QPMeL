@@ -29,12 +29,12 @@ title: Home
         
         <ul class="resource-list list-inline">
             {%- if site.paper_pdf -%}
-                <li><a role="button" href="{{site.paper_pdf}}" class="btn btn-primary rounded-pill">
+                <li><a role="button" href="{{site.paper_pdf}}" rel="noopener" class="btn btn-primary rounded-pill">
                     <i class="fa fa-file-pdf-o"></i><b> Paper</b> 
                 </a> &nbsp; &nbsp; </li> 
             {%- endif -%}
             {%- if site.supplementary_pdf -%}
-                <li><a role="button" href="{{site.supplementary_pdf}}" class="btn btn-primary rounded-pill">
+                <li><a role="button" href="{{site.supplementary_pdf}}" rel="noopener" class="btn btn-primary rounded-pill">
                     <i class="far fa-file-pdf"></i><b> Paper</b> 
                 </a> &nbsp; &nbsp; </li> 
             {%- endif -%}
