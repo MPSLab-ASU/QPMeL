@@ -18,6 +18,7 @@ title: Home
         <figcaption class="blockquote-footer text-center">
             * Indicates Primary Authors 
         </figcaption>
+
         <ul class="org-list list-unstyled text-center">
             {%- if site.sub_organization -%}
                 <li>{{site.sub_organization}}</li>
@@ -28,35 +29,34 @@ title: Home
         </ul>   
         
         <ul class="resource-list list-inline">
-            {%- if site.paper_pdf -%}
-                <li><a role="button" href="{{site.paper_pdf}}" rel="noopener" class="btn btn-primary rounded-pill">
-                    <i class="fa fa-file-pdf-o"></i><b> Paper</b> 
+            {%- if site.IEEE -%}
+                <li><a role="button" href="{{site.IEEE}}" class="btn btn-primary rounded-pill" style="border-color: #17445A;background-color: #17445A">
+                    <i class="ai ai-ieee-square"></i> <b> IEEE </b> 
                 </a> &nbsp; &nbsp; </li> 
             {%- endif -%}
-            {%- if site.supplementary_pdf -%}
-                <li><a role="button" href="{{site.supplementary_pdf}}" rel="noopener" class="btn btn-primary rounded-pill">
-                    <i class="far fa-file-pdf"></i><b> Paper</b> 
+            {%- if site.ACM -%}
+                <li><a role="button" href="{{site.ACM}}" class="btn btn-primary rounded-pill" style="border-color: #28568C;background-color: #28568C">
+                    <i class="ai ai-acm-square "></i> <b> ACM </b> 
                 </a> &nbsp; &nbsp; </li> 
-            {%- endif -%}
-            {%- if site.code -%}
-                {%- if site.code == "soon" %}
-                <li><button class="btn btn-secondary rounded-pill" style="background-color: #242424;">
-                    <i class="devicon-github-original"></i><b> Coming Soon </b> 
-                </button> &nbsp; &nbsp; </li> 
-                {%- else -%}
-                <li><a role="button" href="{{site.code}}" class="btn btn-secondary rounded-pill" style="background-color: #242424;">
-                    <i class="devicon-github-original"></i><b> Code</b> 
-                </a> &nbsp; &nbsp; </li> 
-                {%- endif -%}
             {%- endif -%}
             {%- if site.arXiv -%}
                 <li><a role="button" href="{{site.arXiv}}" class="btn btn-danger rounded-pill" style="background-color: #B31B1B">
                     <i class="ai ai-arxiv-square"></i> <b> ArXiv</b> 
                 </a> &nbsp; &nbsp; </li> 
             {%- endif -%}
-            {%- if site.IEEE -%}
-                <li><a role="button" href="{{site.IEEE}}" class="btn btn-primary rounded-pill" style="border-color: #17445A;background-color: #17445A">
-                    <i class="ai ai-ieee-square"></i> <b> IEEE </b> 
+            {%- if site.code -%}
+                <li><a role="button" href="{{site.code}}" class="btn btn-secondary rounded-pill" style="background-color: #242424;">
+                    <i class="devicon-github-original"></i><b> Code</b> 
+                </a> &nbsp; &nbsp; </li> 
+            {%- endif -%}
+            {%- if site.paper_pdf -%}
+                <li><a role="button" href="{{site.paper_pdf}}" class="btn btn-primary rounded-pill">
+                    <i class="fa fa-file-pdf-o"></i><b> Paper</b> 
+                </a> &nbsp; &nbsp; </li> 
+            {%- endif -%}
+            {%- if site.supplementary_pdf -%}
+                <li><a role="button" href="{{site.supplementary_pdf}}" class="btn btn-primary rounded-pill">
+                    <i class="far fa-file-pdf"></i><b> Paper</b> 
                 </a> &nbsp; &nbsp; </li> 
             {%- endif -%}
         </ul>
@@ -79,8 +79,7 @@ title: Home
     </div>
     {%- endif -%}
 
-    <!-- <h1>{{site.data.figures}}</h1> -->
-    {%- if site.data.figures -%}
+    {%- if site.data.figures[1].caption -%}
         <div id="Media_Carousel">
             <hr class="dotted">
             <h2 class="component-title">Important Figures</h2>
@@ -166,11 +165,14 @@ title: Home
                             {%- if author.github -%}
                                 <a href="https://github.com/{{author.github}}"><i class="devicon-github-plain colored"></i></a>&nbsp; &nbsp; 
                             {%- endif -%}
+                            {%- if author.orcid -%}
+                                <a href="{{author.orcid}}"><i class="ai ai-orcid"></i></a>&nbsp; &nbsp; 
+                            {%- endif -%}
                             {%- if author.google_scholar -%}
                                 <a href="{{author.google_scholar}}"><i class="ai ai-google-scholar-square"></i></a>&nbsp; &nbsp; 
                             {%- endif -%}
                             {%- if author.website -%}
-                                <a href="{{author.website}}"><i class="fa fa-link"></i></a>&nbsp; &nbsp; 
+                                <a href="{{author.website}}"><i class="fa fa-globe"></i></a>&nbsp; &nbsp; 
                             {%- endif -%}
                         </div>
                     </div>
