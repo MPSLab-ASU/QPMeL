@@ -1,6 +1,6 @@
 ######################## Paper Information ########################################
 # Personal info
-paper_name: "QPMeL: Quantum Polar Metric Learning"
+paper_name: "QPMeL - Quantum-Aware Classically-Trained Embeddings via Projective Metric Learning"
 preprint : True
 organization: Arizona State University 
 sub_organization: School of Computing and Augmented Intelligence 
