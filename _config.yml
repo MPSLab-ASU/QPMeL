@@ -17,8 +17,9 @@ arXiv : https://arxiv.org/abs/2312.01655
 favicon: assets/images/MPS_Lab.ico
 
 main_media:
-  source: assets/images/system2.svg
-  caption: QPMeL triplet training loop. The fidelity triplet loss is computed based on the SWAP test fidelity measurement and the gradients are backpropagated throughout. The classical model weights, ZZ parameters and QRC parameters are updated together, having the classical head directly learn the polar coordinates that create separation in Hilbert Space.
+  source: assets/images/Training.svg
+  caption: |
+    **QPMeL training with prototypical loss** - The QPMeL encoder produces a set of angular coordinates for the multi-modal support and query vectors. These angular coordinates are converted to Cartesian form, after which the Complex Kernel Function (CKF) is used to compute similarity to be used with a Metric Loss function. The combination of CKF and metric loss creates a ‘Quantum-Aware’ loss function. Cartesian Conversion and CKF jointly create the Projective Metric Function (PMeF).
 
 
 

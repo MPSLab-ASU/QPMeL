@@ -1,23 +1,23 @@
-- filename: model.svg
+- filename: unified.svg
   caption: |
-    *QPMeL* Classical Head Architecture. Our angle prediction layer learns independent $$\theta$$ and $$\gamma$$ from the features of the CNN Backbone. The sigmoid activation and $$2\pi$$ multiplication are used to match the period of rotation in a qubit. Quantum Residual Correction is then applied for inference.
+    QPMeL utilizes the surface of independent unit spheres as a unified feature space between quantum states and classical vectors. This unified space spans all unentangled quantum states. Once trained, a NISQ friendly depth-efficient circuit using only 2 gates per qubit encodes data.
 
-- filename: inference_circ.svg
+- filename: encoder_architecture.svg
   caption: |
-    Encoding (Inference) Circuit for *QPMeL* that encodes images based on inputs from the classical head.
+    **QPMeL Encoder** consists of a standard metric encoder with a dense block appended to it. The final layer of the dense block is used as the input to 2 independent dense layers, which produce the angular coordinates $\vec{\theta},\vec{\gamma}$ . This is termed '*Angle Projection*'.
 
-- filename: training_circ.svg
-  caption: |
-    Training Circuit. The green boxes - encoding circuit. The yellow box - SWAP Test implementation. The comparison is either a +ve or -ve sample
+- filename: feature_spaces.svg
+  caption: | 
+    Spherical feature space of quantum states ($S_S$) vs flat $\mathbb{R}^2$ space of classical vectors ($A_S$). Points that might be distinct and far apart in $A_S$ are the same point in $S_S$.
 
-- filename: mse_table.svg
-  caption: |
-    MinMax Metric, Euclidean Space: Sigmoid models cannot create decision boundaries. The remaining models create a decision boundary. *QPMeL* models perform the best
+- filename: Table1.png
+  caption: | 
+    Results on MNIST and FMNIST
 
-- filename: MSEHeat.svg
-  caption: |
-    All Pair heatmaps in Euclidean space: (a) and (c) have the same model architecture but show large differences in separatability. (b) shows perfect separatability but via an unbounded upper limit as seen by the magnitude of values.
+- filename: Table2.png
+  caption: | 
+    Results on Omniglot
 
-- filename: HilbertHeat.svg
-  caption: |
-    All Pair heatmaps in Hilbert Space: (a) shows our model fully trained with residuals, with perfect separation and large differences. (b). shows the same model trained without residuals with multiple outliers. (c). only creates binary separation for the digit 9 (d). shows a modified version of the QMeL model with perfect separation but smaller differences between +ve and -ve classes.
+- filename: Table3.png
+  caption: | 
+    Results on MS-COCO Captions
