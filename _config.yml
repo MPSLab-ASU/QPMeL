@@ -8,7 +8,7 @@ sub_organization: School of Computing and Augmented Intelligence
 
 ######################## Paper Resources ########################################
 
-paper_pdf: https://arxiv.org/pdf/2312.01655.pdf
+paper_pdf: https://arxiv.org/pdf/2312.01655
 # supplementary_pdf: Supplementary PDF here
 code: soon # https://github.com/MPSLab-ASU/Project_Page_Template
 arXiv : https://arxiv.org/abs/2312.01655
