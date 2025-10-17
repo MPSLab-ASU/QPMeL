@@ -1,38 +1,22 @@
+Quantum computing offers a fundamentally new model of computation by leveraging quantum mechanical principles such as superposition, entanglement, and interference. These phenomena enable quantum systems to represent and manipulate information in ways that are exponentially more expressive than classical systems. In the context of machine learning, this opens up possibilities for richer feature representations, more powerful function approximation, faster learning, and increased robustness to noise. As a result, Quantum Machine Learning (QML) has emerged as a promising direction for addressing complex learning tasks that challenge the capabilities of classical models. That said, the field is still in its early stages of development.
+
+Despite the promise of QML, practical solutions are severely constrained by the current limitations of quantum hardware. We are still in the Noisy Intermediate-Scale Quantum (NISQ) era, where available devices have limited qubit counts, short coherence times, and no robust error correction. These constraints mean that quantum circuits must be shallow and narrow to be executable. In this regime -- expected to persist for the near future -- quantum machine learning algorithms must be efficient not only in gate depth but also in how classical information is encoded into quantum states.
+
+To apply quantum models to classical data, a necessary first step is to encode that data into quantum states. The effectiveness of this encoding often determines the downstream performance of the quantum model. Ideally, the encoding should both compactly represent classical information and project it into a quantum feature space where patterns become more separable. A high-quality encoding enhances the expressive power of the quantum circuit, allowing it to learn meaningful patterns. Note that while the encoding stage is foundational, it does not replace the need for a trainable quantum circuit, which still plays a critical role in refining representations and making final predictions.
+
+Early quantum data encoding techniques, such as amplitude and basis encoding, can be categorized as quantum-unaware classical methods. These methods treat encoding as a fixed preprocessing step and do not leverage the geometric structure of the quantum state space. As a result, they often yield sparse, suboptimal encodings that are poorly aligned with quantum operations, leading to reduced information density and class separability. To overcome these limitations, recent work has explored trainable quantum encodings using parametrized quantum circuits (PQCs). These approaches aim to learn dense, task-optimized encodings directly in the quantum state space. However, they face significant practical hurdles. Most notably, the barren plateau phenomenon causes the optimization landscape to become exponentially flat as the system size increases, making training unstable, slow, and resource-intensive. This severely limits their applicability on current quantum hardware.
+
+In this work, we propose **Q**uantum **P**rojective **Me**tric **L**earning (**QPMeL**)—a novel framework that avoids both the challenges by enabling *quantum-aware, classically-trained data encodings*. The core idea of QPMeL is to define a unified feature space composed of the surfaces of independent unit spheres in $\R^3$. Classical data points are mapped to this space by a learnable encoder, producing polar and azimuthal angles ($\theta, \gamma$) that naturally align with the state space of multiple unentangled qubits (think multiple Bloch spheres). These coordinates can be directly translated into quantum states using simple $R_Y$ and $R_Z$ gates. Because the encoder is trained classically, QPMeL avoids barren plateaus and exhibits stable, fast convergence. 
+
+To support this learning, QPMeL introduces a novel **Projective Metric Function (PMeF)** that approximates Hilbert space similarity using only the $\R^3$ coordinates of the encoded points. Furthermore, we introduce a gradient stabilization trick that improves training stability by producing more informative gradients when using PMeF. Taken together, these innovations make QPMeL a scalable and practical approach for learning quantum-ready encodings without quantum training. The key contributions of QPMeL are:
+
+1. A unified feature space of independent spherical surfaces created via a classical encoder that produces polar coordinates ($\theta, \gamma$) common to the classical and quantum domains.
+2. A novel Projective Metric Function (PMeF), which computes the Hilbert Space similarity between points using the $\R^3$ coordinates derived from the polar coordinates.
+3. A gradient trick for PMeF leading to more stable gradients during training, allowing the models to converge more consistently.
 
 
-$$\newcommand{\ket}[1]{\left|{#1}\right\rangle}$$
-$$\newcommand{\bra}[1]{\left\langle{#1}\right|}$$
-$$\bra{\Psi}\Omega\ket{\Psi}$$
+We benchmark QPMeL against a broad set of quantum metric learning approaches. In standard classification, QPMeL outperforms all prior methods on MNIST and Fashion-MNIST in binary, 3-class, and 10-class settings. It achieves nearly 99% accuracy on binary tasks, including harder class pairs like (3,5) and (3,6), where other methods degrade significantly. It is the only method that scales successfully to 10-class classification, reaching 96% on MNIST and 85% on Fashion-MNIST. Previous methods either support only binary classification, or report no multi-class results, or perform poorly on more complex tasks.
 
-$$\newcommand{\braket}[2]{\left\langle{#1}\middle|{#2}\right\rangle}$$
-$$\braket{\Psi}{\Psi}$$
-$$\braket{\frac{\Psi}{2}}{\Psi}$$
+In few-shot learning (FSL), QPMeL again outperforms or matches prior work \cite{Huang, Liu_2022}, while using only 1/6th the number of qubits. It scales to 10-way FSL with ~90% accuracy and maintains over 85% accuracy in the 15-way setting, which most baselines cannot handle.
 
-## Math Demo
-$$ \alpha = \beta $$
-
-## Paper Contributions
-**QPMeL** addresses introduces the following ideas: 
-1. A novel classical network that encodes classical data into 2 real-valued vectors that are used as Polar coordinates of a qubit. This allows us to utilize the entire 3D space of a qubit, as we are not limited to a single plane.
-2. A hybrid Hilbert space distance metric we dub *Fidelity Triplet Loss* that measures distance in Hilbert Space while creating the optimization target classically. The distances are measured in-circuit while their difference is computed classically.
-3. *Quantum Residual Corrections* to speed up model learning and generate more stable gradients by acting as a noise barrier. The parameters absorb noisier gradients to allow the classical model to learn more efficiently.
-
-
-## Quantum State Equation
-
-The final state produced by our Encoding circuit would be:
-\begin{equation}
-   \ket{\psi} = \bigotimes_{i=0}^n \exp(i\frac{\phi_i}{2}) \cos{\frac{\theta_i}{2}} \ket{0} \; + \; \exp(i \frac{- \phi_i}{2}) \sin{\frac{\theta_i}{2}} \ket{1} 
-\end{equation}
-where,
-
-$$
-\begin{align*}
-    \phi_i &= \alpha_k - \alpha_i - \gamma_i \\
-    k &= (n+i)\mod (n+1) 
-    \theta_i &= \theta_{m_i} + \theta_{\Delta_i} \quad | \quad \gamma_i = \gamma_{m_i} + \gamma_{\Delta_i} \\
-    \theta_{m_i}, \gamma_{m_i} &= f(image,w) \\
-\end{align*}
-$$
-
-Where we have 6 parameters per qubit, 2 from the classical model ($\theta_m,\gamma_m$), 2 learned parameters for the $ZZ$-Gate ($\alpha_i,\alpha_k$) and 2 residuals ($\theta_{\Delta},\gamma_{\Delta}$).
+To the best of our knowledge, QPMeL is the first QML method to scale up to support multi-modal (image–text) few-shot learning. Using a CLIP-like architecture (BERT for text and Xception for image), QPMeL achieves $\ge 90\%$ accuracy in 15-way 1-shot classification. Its performance remains consistent across support/query modality combinations, suggesting it learns a shared latent space for both modalities. All of this is achieved using just 20 qubits, (compared to 64 for image-only models like Liu et al.) highlighting QPMeL's scalability and efficiency.
