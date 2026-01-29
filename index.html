@@ -54,6 +54,11 @@ title: Home
                     <i class="ai ai-ieee-square"></i> <b> IEEE </b> 
                 </a> &nbsp; &nbsp; </li> 
             {%- endif -%}
+            {%- if site.presentation -%}
+                <li><a role="button" href="{{site.presentation}}" class="btn btn-warning rounded-pill" style="border-color: #D24726;background-color: #D24726">
+                    <i class="fa fa-file-powerpoint-o"></i> <b> Presentation</b> 
+                </a> &nbsp; &nbsp; </li> 
+            {%- endif -%}
         </ul>
     </div>
 
