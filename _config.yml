@@ -13,6 +13,7 @@ paper_pdf: https://arxiv.org/pdf/2312.01655
 # code: soon # https://github.com/MPSLab-ASU/Project_Page_Template
 arXiv : https://arxiv.org/abs/2312.01655
 # Additional icon links
+presentation : assets/QPMeL.pptx
 
 favicon: assets/images/MPS_Lab.ico
 
